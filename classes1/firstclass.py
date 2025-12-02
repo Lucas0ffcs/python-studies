@@ -1,6 +1,7 @@
 class Stack:
     def __init__(self):
-        print("Oi!")
+        self.__stack_list = [] #colocar sublinhado antes do atributo torna-o privado como private em java
 
 
 stack_object = Stack()
+print(len(stack_object.__stack_list))
