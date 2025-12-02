@@ -48,8 +48,11 @@ class Timer:
         return self.__sec
 
 def stringer(hour, min, sec):
-    string = f" {hour} + : + {min} + : +  {sec}"
+    string = f" {hour}:{min}:{sec}"
     print(string)
 
-time  = Timer(15, 12, 30)
-stringer(time.getHour() + ":" + time.getMin() + ":" + time.getSec())
+time  = Timer(23, 59, 59)
+time.next_second()
+time.prev_second()
+time.prev_second()
+stringer(time.getHour() , time.getMin() , time.getSec())
