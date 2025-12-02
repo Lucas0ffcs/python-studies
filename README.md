@@ -1,1 +1,2 @@
-# Acompanhe meus estudos em python neste repositório 
+# Esses são meus estudos em python
+  Em geral feitos pelos cursos da CISCO
