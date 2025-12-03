@@ -5,10 +5,10 @@ import livro
 class biblioteca:
     catalogo = []
 
-    def addLivro(self,livru: livro):
+    def addLivro(self,livro):
         biblioteca.catalogo.append(livro)
 
-    def remLivro(self,livru: livro):
+    def remLivro(self,livro):
         biblioteca.catalogo.remove(livro)
 
     def buscaLivro(self, livru: livro):
