@@ -1,6 +1,6 @@
-import livro
+from .livro import Livro
 
-class livroDigital(livro):
-    def __init__(self, titulo, autor, peso):
-        super().__init__(titulo, autor)
-        self.__peso = peso
+class LivroDigital(Livro):
+    def __init__(self, titulo, autor, tamArq, ano):
+        super().__init__(titulo, autor, ano, )
+        self.__tamArq = tamArq

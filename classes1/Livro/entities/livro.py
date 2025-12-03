@@ -10,9 +10,6 @@ class Livro:
 
 
 
-
-
-
     def emprestar(self):
         if not self.__disp:
             print('"'+ self.__titulo + '" não está disponível')

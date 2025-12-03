@@ -1,22 +1,20 @@
-import livro
+from .livro import Livro
 
-
-
-class biblioteca:
+class Biblioteca:
     catalogo = []
 
     def addLivro(self,livro):
-        biblioteca.catalogo.append(livro)
+        Biblioteca.catalogo.append(livro)
 
     def remLivro(self,livro):
-        biblioteca.catalogo.remove(livro)
+        Biblioteca.catalogo.remove(livro)
 
-    def buscaLivro(self, livru: livro):
-        if livru not in biblioteca.catalogo:
+    def buscaLivro(self, livro):
+        if livro not in Biblioteca.catalogo:
             print("Título não encontrado")
             return
         else:
-            texto_busca = livru.titulo
+            texto_busca = livro.titulo
 
     def listDisp(self):
-        return biblioteca.catalogo
+        return Biblioteca.catalogo
