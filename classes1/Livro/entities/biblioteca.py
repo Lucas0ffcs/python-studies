@@ -17,4 +17,8 @@ class Biblioteca:
             texto_busca = livro.titulo
 
     def listDisp(self):
-        return Biblioteca.catalogo
+        for i in Biblioteca.catalogo:
+            print(i.__str__())
+
+
+

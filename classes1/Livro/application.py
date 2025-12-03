@@ -7,6 +7,6 @@ from classes1.Livro.entities.biblioteca import Biblioteca
 domcas = LivroDigital("Dom Casmurro", "Machado de Assis", 300, 1890)
 
 
-Biblioteca.addLivro(domcas)
-print(Biblioteca.catalogo)
+Biblioteca.addLivro(Biblioteca, domcas)
+print(Biblioteca.listDisp(Biblioteca))
 
