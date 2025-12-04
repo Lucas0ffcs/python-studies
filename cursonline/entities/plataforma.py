@@ -1,0 +1,3 @@
+class Plataforma:
+    nome = ""
+    cursos = []
