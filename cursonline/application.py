@@ -1,4 +1,3 @@
-from stringprep import c22_specials
 
 from cursonline.entities.curso import Curso
 from cursonline.entities.plataforma import Plataforma
@@ -20,4 +19,5 @@ plat1.addCurso(c3)
 plat1.addCurso(c4)
 
 
-plat1.listCursos()
+print(plat1.listCursos())
+

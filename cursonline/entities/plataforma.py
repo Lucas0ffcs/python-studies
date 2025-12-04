@@ -8,8 +8,14 @@ class Plataforma:
         self.__cursos.append(curso)
         return
     def listCursos(self):
-        return self.__cursos
-    def buscaCursoInstrutor(self, instrutor):
-        lista = list(filter(lambda x: x.__nome == instrutor, self.__cursos))
+
+        lista = []
+        for curso in self.__cursos:
+            lista.append(curso.nomes)
+
         return lista
 
+
+    def bCInstrut(self, instrutor):
+        lista = list(filter(lambda x: x.nomes == instrutor, self.__cursos))
+        return lista
