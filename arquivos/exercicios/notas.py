@@ -1,0 +1,4 @@
+stream = open("notas.txt", "w", encoding="UTF-8")
+stream.write("Matemática: 8.5\n")
+stream.write("Português: 7.0\n")
+stream.write("História: 9.0\n")
