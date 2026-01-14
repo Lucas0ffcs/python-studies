@@ -70,16 +70,6 @@ match(switch):
 
 
 
-
-
-
-
-
-
-
-
-
-
 cursor.close()
 conexao.close()
 
