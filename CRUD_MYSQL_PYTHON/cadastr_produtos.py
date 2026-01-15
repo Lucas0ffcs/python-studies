@@ -62,7 +62,7 @@ def listProd():
 def buscProd():
     nome = input("\nDigite o nome do produto a ser buscado: ")
     comando = 'SELECT * FROM produtos WHERE nome = %s'
-    valores = (nome)
+    valores = (nome,)
     resultado = cursor.fetchall()
     print("\n" + resultado)
     input("\n\n\nPressione Enter...")
@@ -88,21 +88,21 @@ def attProd():
             id = int(input("Digite o id do produto a ser atualizado: "))
             categoria = input("Digite a nova categoria do produto: ")
             comando = 'UPDATE produtos SET categoria = %s WHERE id = %s'
-            valores = (categoria)
+            valores = (categoria, id)
             cursor.execute(comando, valores)
             conexao.commit()
         case 3:
             id = int(input("Digite o id do produto a ser atualizado: "))
             preco = Decimal(input("Digite a nova categoria do produto: "))
             comando = 'UPDATE produtos SET preco = %s WHERE id = %s'
-            valores = (preco)
+            valores = (preco, id)
             cursor.execute(comando, valores)
             conexao.commit()
         case 4:
             id = int(input("Digite o id do produto a ser atualizado: "))
             estoque = int(input("Digite a nova categoria do produto: "))
             comando = 'UPDATE produtos SET estoque = %s WHERE id = %s'
-            valores = (estoque)
+            valores = (estoque, id)
             cursor.execute(comando, valores)
             conexao.commit()
         case 5:
@@ -112,7 +112,7 @@ def attProd():
             preco = Decimal(input("Digite a nova categoria do produto: "))
             estoque = int(input("Digite a nova categoria do produto: "))
             comando = 'UPDATE produtos SET nome = %s, categoria = %s, preco = %s, estoque = % WHERE id = %s'
-            valores  = (nome, categoria, preco, estoque)
+            valores  = (nome, categoria, preco, estoque, id)
             cursor.execute(comando, valores)
             conexao.commit()
         case 6:
@@ -123,30 +123,50 @@ def attProd():
 
 
 def remProd():
-    id = int(input("Digite o id do produto a ser removido do estoque: "))
-    input("Tem certeza que deseja remover esse produto? S/N")
-    comando = f'DELETE FROM livros WHERE WHERE id = %s'
-    valores = (id)
-    cursor.execute(comando, valores)
-    conexao.commit()
-    input("\n\n\nPressione Enter...")
+    id = input("Digite o id do produto a ser removido do estoque: ")
+    escolha = input("Tem certeza que deseja remover esse produto? S/N").upper()
+    match(escolha):
+        case "S":
+            comando = f'DELETE FROM produtos WHERE id = %s'
+            valores = (id,)
+            cursor.execute(comando, valores)
+            conexao.commit()
+            input("\n\n\nPressione Enter...")
+        case "N":
+            menu()
+
 
 def regVenda():
     id = int(input("Digite o id do produto a ser vendido: "))
 
     comando1 = 'SELECT estoque FROM produtos WHERE id = %s'
-    estoque = cursor.fetchall()
-    print("Quantidade disponível: " + estoque)
+    cursor.execute(comando1, (id,))
+    resultado = cursor.fetchone()
+
+    if resultado is None:
+        print("Produto não encontrado.")
+        input("Pressione Enter...")
+        return
+
+    estoque = resultado[0]
+    print(f"Quantidade disponível: {estoque}")
+
     quantidade = int(input("Digite a quantidade desejada: "))
+
     if quantidade <= 0 or quantidade > estoque:
-        print("Quantidade indiponível!\n\n")
-        input("Digite Enter para continuar")
-        menu()
-    valores = (estoque - quantidade)
-    comando = 'UPDATE produtos SET estoque = %s WHERE id = %s'
-    cursor.execute(comando, valores)
+        print("Quantidade indisponível!")
+        input("Pressione Enter...")
+        return
+
+    novo_estoque = estoque - quantidade
+
+    comando2 = 'UPDATE produtos SET estoque = %s WHERE id = %s'
+    cursor.execute(comando2, (novo_estoque, id))
     conexao.commit()
-    input("\n\n\nPressione Enter...")
+
+    print("Venda registrada com sucesso!")
+    input("Pressione Enter...")
+
 
 
 cursor = conexao.cursor()
