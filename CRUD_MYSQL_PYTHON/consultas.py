@@ -27,7 +27,6 @@ def menu():
         print("2 - Listar consultas")
         print("3 - Buscar consultas por paciente")
         print("4 - Atualizar status da consulta")
-        print("5 - Cancelar consulta")
         print("0 - Sair")
 
         escolha = int(input("\nSelecione uma opção\n\n"))
@@ -42,15 +41,11 @@ def menu():
                 busConsulta()
             case 4:
                 attStauts()
-            # case "5":
-            #
+
             case 0:
                 sys.exit()
             case _:
                 print("Digite um valor válido!")
-
-
-
 
 
 
