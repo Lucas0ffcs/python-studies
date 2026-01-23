@@ -4,7 +4,6 @@ import mysql.connector
 
 
 def exbJogos(jogos):
-    c = 0
     for i in jogos:
         print(f'Id: {i[0]}')
         print(f'Titulo: {i[1]}')
