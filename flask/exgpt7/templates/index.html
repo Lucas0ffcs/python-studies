@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<h1>Bem vindo ao menu!</h1>
+<a href="{{url_for('signup')}}">
+    <button type="button">Cadastrar</button>
+</a>
+<a href="{{url_for('login')}}">
+    <button type="button">Entrar</button>
+</a>
+
+{%endblock%}
