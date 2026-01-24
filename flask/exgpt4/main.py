@@ -5,10 +5,9 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     lista = [
-        {"usuario":"Lucas", "ativo":True},
-        {"usuario":"Julia", "ativo":False},
-        {"usuario":"Monkey", "ativo":True}
-
+        {"usuario":"Lucas", "ativo":'1'},
+        {"usuario":"Julia", "ativo":'0'},
+        {"usuario":"Monkey", "ativo":'1'}
     ]
 
 
@@ -16,7 +15,7 @@ def home():
 
 @app.route('/status/<nome>/<ativo>')
 def status(nome, ativo):
-    ativo = ativo == "1"
+    ativo = True if ativo == '1' else False
 
     return render_template('status.html', nome=nome,ativo=ativo)
 
