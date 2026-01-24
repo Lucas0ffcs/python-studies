@@ -14,8 +14,8 @@ def login():
         usuario = request.form["usuario"]
         senha = request.form["senha"]
     
-        return f"Usuário: {usuario} Senha: {senha}"
-    return "Página de login"
+        
+        return render_template('login.html', usuario=usuario, senha=senha)
 
 
 app.run(debug=True)
