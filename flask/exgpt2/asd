@@ -1,0 +1,5 @@
+<h1>Usuário: {{ nome }}</h1>
+{%if ativo == False%}
+<p class="text-danger">Usuário inativo</p>
+{%else%}
+{%endif%}
