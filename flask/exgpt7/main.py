@@ -14,7 +14,7 @@ def signup():
         usuario = request.form.get("usuario")
         senha = request.form.get("senha")
         if " " in usuario or " " in senha:
-            return "Não utilize espaços!"
+            return render_template("espaco.html")
         if usuario == "" or senha == "":
             return "Preencha ambos os campos!"
         elif usuario in usuarios:
