@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 from database.cliente import CLIENTES
 
-cliente_route = Blueprint('cliente', __name__)
+cliente_route = Blueprint('clientes', __name__)
 
 """
 ROTA DE CLIENTES
