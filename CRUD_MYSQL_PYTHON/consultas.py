@@ -59,7 +59,7 @@ def agdConsulta():
         paciente = input("\nDigite o nome do paciente: ")
         medico = input("Digite o nome do médico: ")
         data = input("Digite a data da consulta YYYY-MM-DD: ")
-        horario = input("Digite o horario HH:MM:SS: ")
+        horario = input("Digite o horario HH:MM:SS: ")  
         status = "AGENDADA"
         valores = (paciente, medico, data, horario, status)
         comando = f'INSERT INTO consultas (paciente, medico, data, horario, status) VALUES (%s, %s, %s, %s, %s)'
